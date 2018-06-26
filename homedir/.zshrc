@@ -36,6 +36,7 @@ source $ZSH/oh-my-zsh.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source /usr/local/opt/nvm/nvm.sh
+source ~/.shellaliases
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -48,8 +49,13 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # Customize to your needs...
 unsetopt correct
-
+eval "$(ssh-agent -s)"
+eval "$(rbenv init -)"
 # run fortune on new terminal :)
 fortune
+export EDITOR='sublime'

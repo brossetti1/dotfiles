@@ -40,9 +40,21 @@ module.exports = {
     'vim --with-override-system-vi',
     'watch',
     // Install wget with IRI support
-    'wget --enable-iri'
+    'wget --enable-iri',
+    'redis',
+    'postgresql@9.6',
+    'sourcetree',
   ],
   cask: [
+    'google-chrome',
+    'slack',
+    'sublime-text',
+    'brave',
+    'alfred',
+    'flux',
+    'polymail',
+    'postgres',
+    'spotify',
     //'adium',
     //'amazon-cloud-drive',
     //'atom',
