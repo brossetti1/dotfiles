@@ -58,4 +58,5 @@ eval "$(ssh-agent -s)"
 eval "$(rbenv init -)"
 # run fortune on new terminal :)
 fortune
-export EDITOR='sublime'
+export PATH=$PATH:$HOME/bin:~/.local/bin
+export EDITOR='sublime -w'

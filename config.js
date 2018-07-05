@@ -44,6 +44,10 @@ module.exports = {
     'redis',
     'postgresql@9.6',
     'sourcetree',
+    'elixir',
+    'rbenv',
+    'nvm'
+
   ],
   cask: [
     'google-chrome',
@@ -55,6 +59,9 @@ module.exports = {
     'polymail',
     'postgres',
     'spotify',
+    '1password',
+    'helium',
+    'cheatsheet',
     //'adium',
     //'amazon-cloud-drive',
     //'atom',

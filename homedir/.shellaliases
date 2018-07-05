@@ -3,7 +3,6 @@
 #################################
 # Simple Program Name Shortening
 alias g=git
-
 #############################
 # Utilities
 
@@ -92,5 +91,12 @@ alias spoton="sudo mdutil -a -i on"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 
 alias vtop="vtop --theme wizard"
+
+# postgres aliases
+alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+
 # personal
+alias cdc='cd ~/Projects/callrail-top/callrail/'
 alias hg='history | grep'
+

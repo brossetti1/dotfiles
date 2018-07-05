@@ -4,6 +4,7 @@
 [github]
   # https://github.com/blog/180-local-github-config
   user = brossetti1
+  token = <REDACTED>
 [color]
 # ui = true is a superset of all the more specific color options
 #  as documented at http://book.git-scm.com/5_customizing_git.html
@@ -48,7 +49,7 @@
   # prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
   #safecrlf = true
   #editor = vim
-  editor = sublime
+	editor = sublime -w
 
 [alias]
   # most commonly used
@@ -200,7 +201,7 @@
   required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
