@@ -99,4 +99,5 @@ alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.
 # personal
 alias cdc='cd ~/Projects/callrail-top/callrail/'
 alias hg='history | grep'
+alias standup='git log --since="yesterday" --branches --author="Brian Rossetti"'
 
