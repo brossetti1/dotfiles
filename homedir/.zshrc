@@ -62,6 +62,7 @@ load-nvmrc
 unsetopt correct
 eval "$(ssh-agent -s)"
 # eval "$(rbenv init -)"
+
 # run fortune on new terminal :)
 # fortune
 export PATH=$PATH:$HOME/bin:~/.local/bin

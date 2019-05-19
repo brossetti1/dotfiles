@@ -113,6 +113,7 @@ alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.
 alias cdc='cd ~/Projects/callrail-top/callrail/'
 alias hg='history | grep'
 alias rrs='rescue rails server'
+alias standup='git log --since="yesterday" --branches --author="Brian Rossetti"'
 
 # lacrosselabs
 alias cdl='cd ~/Programming/lacrosselabs-top/laxlabs'
