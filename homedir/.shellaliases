@@ -37,9 +37,12 @@ alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready 
 # assumes git-up is installed (gem install git-up)
 # switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
 alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
-
+# resets branch 1 commit (unstage wip branches)
+alias resetone='git reset $(git log --pretty=format:%h -1 --skip=1)'
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip="curl ipinfo.io/ip"
+# alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+# alias ip="dig +shogit rt myip.opendns.com @resolver1.opendns.com"
 alias iplocal="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
@@ -98,6 +101,7 @@ alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.
 
 # personal
 alias cdc='cd ~/Projects/callrail-top/callrail/'
+alias cds='cd ~/Projects/callrail-top/swappy/'
 alias hg='history | grep'
 alias standup='git log --since="yesterday" --branches --author="Brian Rossetti"'
 

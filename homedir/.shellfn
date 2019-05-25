@@ -121,3 +121,13 @@ function tre(){
 function weather() {
   curl wttr.in/$1
 }
+
+function pgr() {
+    echo "Finding processes in list: $PROCESSES_TO_QUIT"
+    echo $PROCESSES_TO_QUIT | xargs -n 1 pgrep -l
+}
+
+function pgk() {
+    echo "Killing processes in list: $PROCESSES_TO_QUIT"
+    echo $PROCESSES_TO_QUIT | xargs -n 1 pkill -l
+}
