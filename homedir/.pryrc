@@ -5,35 +5,14 @@
 # Record how long you hack with Ruby this session.
 pryrc_start_time = Time.now
 
-require '~/.pryrc-helpers'
-
-# ___ is to Avoid name conflict
-___ = PryrcHelpers
-
 # what are the gems you use daily in REPL? Put them in ___daily_gems
-___daily_gems  = %w[benchmark yaml json sqlite3]
+# ___daily_gems  = %w[benchmark yaml json]
 
 # ___pry_gems is for loading vendor plugins for Pry.
-___pry_gems = %w[awesome_print hirb sketches debugger pry-debugger pry-stack_explorer]
+___pry_gems = %w[awesome_print pry-debugger pry-stack_explorer]
 
-___daily_gems.___require_gems
+# ___daily_gems.___require_gems
 ___pry_gems.___require_gems
-
-## Enable Pry's show-method in Ruby 1.8.7
-# https://github.com/pry/pry/wiki/FAQ#how-can-i-use-show-method-with-ruby-187
-if RUBY_VERSION == "1.8.7"
-  safe_require 'ruby18_source_location', "Install this gem to enable Pry's show-method"
-  warn 'Ruby 1.8.7 is retired now, please consider upgrade to newer version of Ruby.'
-end
-
-# ==============================
-#  Some FAQ
-# ==============================
-
-# https://github.com/pry/pry/wiki/FAQ#why-doesnt-pry-work-with-ruby-191
-if RUBY_VERSION == "1.9.1"
-  warn '1.9.1 has known issue with Pry. Please upgrade to 1.9.3-p448 or Ruby 2.0+.'
-end
 
 ## Why is my emacs shell output showing odd characters?
 # [1A[0Ginput> [1B[0Ginput>
@@ -46,8 +25,8 @@ end
 # ==============================
 
 if RUBY_REVISION < 43780
-  print ___.colorize "YOUR RUBY #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} HAS VULNERABILITIES, PLEASE CONSIDER UPGRADE TO LATEST VERSION. ", 31
-  print ___.colorize "MORE INFORMATION: http://goo.gl/mmcAQz\n", 31
+  print "YOUR RUBY #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} HAS VULNERABILITIES, PLEASE CONSIDER UPGRADE TO LATEST VERSION. ", 31
+  print "MORE INFORMATION: http://goo.gl/mmcAQz\n", 31
 end
 
 # ==============================
@@ -101,13 +80,6 @@ if defined? AwesomePrint
   ## Evaluated result display inline
   # Pry.config.print = lambda { |output, value| output.print "\e[1A\e[18C # => "; output.puts value.inspect }
 
-  ## if in bundler, break out, so awesome print doesn't have to be in Gemfile
-  if defined? Bundler
-    Gem.post_reset_hooks.reject! { |hook| hook.source_location.first =~ %r{/bundler/} }
-    Gem::Specification.reset
-    load 'rubygems/custom_require.rb'
-  end
-
   ## awesome_print config for Minitest.
   if defined? Minitest
     module Minitest::Assertions
@@ -125,7 +97,7 @@ end # End of AwesomePrint
 # ==============================
 
 # History (Use one history file)
-Pry.config.history.file = "~/.irb_history"
+Pry.config.history.file = "~/.pry_history"
 
 # Editors
 #   available options: vim, mvim, mate, emacsclient...etc.
@@ -150,8 +122,8 @@ end
 
 # Exception
 Pry.config.exception_handler = proc do |output, exception, _|
-  puts ___.colorize "#{exception.class}: #{exception.message}", 31
-  puts ___.colorize "from #{exception.backtrace.first}", 31
+  puts "#{exception.class}: #{exception.message}", 31
+  puts "from #{exception.backtrace.first(3)}", 31
 end
 
 # Handy hotkeys for debugging!
@@ -236,48 +208,5 @@ if defined?(Rails)
   rescue LoadError => e
     require "console_app"
     require "console_with_helpers"
-  end
-end
-
-# ==============================
-#   Welcome to Pry
-# ==============================
-Pry.active_sessions = 0
-
-Pry.config.hooks.add_hook(:before_session, :welcome) do
-    if Pry.active_sessions.zero?
-      puts "Hello #{___.user}! I'm Pry #{Pry::VERSION}."
-      puts "I'm Loading Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} and everything else for you:"
-
-      ### Fake Loading Progress bar
-      # |====================>
-      [*1..9].each do |e|
-        print ___.pryrc_progress_bar e
-        $stdout.flush
-        sleep ___.pryrc_speed
-      end
-
-      # Print |==================> Load Completed!
-      # 9 is to keep progress bar have the same length (see above each loop)
-      print ___.pryrc_progress_bar 9, true
-
-      puts ___.welcome_messages
-    end
-  Pry.active_sessions += 1
-end
-
-# ==============================
-#   So long, farewell...
-# ==============================
-Pry.config.hooks.add_hook(:after_session, :farewell) do
-  Pry.active_sessions -= 1
-  if Pry.active_sessions.zero?
-    if ___.true_true_or_false
-      puts ___.farewell_messages
-    else
-      interpreted_time = ___.interpret_time(Time.now - pryrc_start_time)
-      interpreted_time = 'ever' if interpreted_time == '0 second'
-      puts "Hack with Ruby for #{interpreted_time}!"
-    end
   end
 end

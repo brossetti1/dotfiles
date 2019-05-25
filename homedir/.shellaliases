@@ -95,6 +95,19 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 alias vtop="vtop --theme wizard"
 
+alias jsonfix="pbpaste | jq . | pbcopy"
+
+alias lookbusy="cat /dev/urandom | hexdump -C | grep \"34 32\""
+alias td="todo.sh"
+alias tda="todo.sh add"
+alias tdl="todo.sh list"
+alias tdd="todo.sh do"
+
+alias k='kubectl'
+alias kp='kubectl get pods -o wide'
+alias kdp='kubectl describe pod'
+alias kdn='kubectl describe node'
+
 # postgres aliases
 alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
@@ -104,4 +117,11 @@ alias cdc='cd ~/Projects/callrail-top/callrail/'
 alias cds='cd ~/Projects/callrail-top/swappy/'
 alias hg='history | grep'
 alias standup='git log --since="yesterday" --branches --author="Brian Rossetti"'
+alias rrs='rescue rails server'
+
+# lacrosselabs
+alias cdl='cd ~/Projects/lacrosselabs-top/laxlabs'
+
+# anotate models
+alias anm='annotate --exclude tests,fixtures,factories,serializers'
 
