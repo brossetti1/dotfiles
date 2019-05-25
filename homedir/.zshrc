@@ -45,6 +45,9 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
+source ~/.callrail
+
+
 autoload -U add-zsh-hook
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
@@ -64,8 +67,16 @@ unsetopt correct
 eval "$(ssh-agent -s)"
 # eval "$(rbenv init -)"
 
-# run fortune on new terminal :)
-# fortune
 export PATH=$PATH:$HOME/bin:~/.local/bin
-export EDITOR='sublime -w'
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+export PATH="$(yarn global bin):$PATH"
+export PATH="/usr/local/opt/qt/bin:$PATH"
+
+export EDITOR='sublime -w'
+
+export EDITOR='subl -w'
+# for pgr and pgk in ~/.shellfn
+export PROCESSES_TO_QUIT='puma rake sidekiq spring rails$ ruby-debug phantomjs puppeteer passenger guard resque ruby$ foreman'
+export POW_DOMAINS="test,local"
+[[ -s "/Users/brianrossetti/.dockercfg" ]] && . "/Users/brianrossetti/.dockercfg"
