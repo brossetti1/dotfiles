@@ -1,116 +1,89 @@
 module.exports = {
   brew: [
-    // http://conqueringthecommandline.com/book/ack_ag
-    'ack',
+    'ack', // http://conqueringthecommandline.com/book/ack_ag
     'ag',
-    // https://github.com/wting/autojump
-    'autojump',
-    // alternative to `cat`: https://github.com/sharkdp/bat
-    'bat',
-    // Install GNU core utilities (those that come with macOS are outdated)
-    // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-    'coreutils',
+    'autojump', // https://github.com/wting/autojump
+    'bat', // alternative to `cat`: https://github.com/sharkdp/bat
+    'coreutils', // Install GNU core utilities (those that come with macOS are outdated) Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'dos2unix',
-    // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-    'findutils',
-    // 'fortune',
+    'findutils', // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     'fzf',
     'readline', // ensure gawk gets good readline
     'gawk',
-    // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
-    'gifsicle',
     'gnupg',
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
     'gnu-sed --with-default-names',
-    // upgrade grep so we can get things like inverted match (-v)
-    'grep --with-default-names',
-    // better, more recent grep
-    'homebrew/dupes/grep',
-    // https://github.com/jkbrzt/httpie
-    'httpie',
-    // jq is a sort of JSON grep
-    'jq',
-    // Mac App Store CLI: https://github.com/mas-cli/mas
-    'mas',
-    // Install some other useful utilities like `sponge`
-    'moreutils',
+    'grep --with-default-names', // upgrade grep so we can get things like inverted match (-v)
+    'homebrew/dupes/grep', // better, more recent grep
+    'httpie', // https://github.com/jkbrzt/httpie
+    'jq', // jq is a sort of JSON grep
+    'mas', // Mac App Store CLI: https://github.com/mas-cli/mas
+    'moreutils', // Install some other useful utilities like `sponge`
     'nmap',
     'openconnect',
     'reattach-to-user-namespace',
-    // better/more recent version of screen
-    'homebrew/dupes/screen',
+    'homebrew/dupes/screen', // better/more recent version of screen
     'tmux',
     'todo-txt',
     'tree',
     'ttyrec',
-    // better, more recent vim
-    'vim --with-client-server --with-override-system-vi',
+    'vim --with-client-server --with-override-system-vi', // better, more recent vim
     'watch',
-    // Install wget with IRI support
-    'wget --enable-iri',
+    'wget --enable-iri', // Install wget with IRI support
     'redis',
     'postgresql@9.6',
     'sourcetree',
     'elixir',
     'rbenv',
-    'nvm'
+    'nvm',
 
   ],
   cask: [
     'google-chrome',
+    'notion',
     'slack',
     'sublime-text',
+    'encryptme',
     'brave',
+    'visual-studio-code',
     'alfred',
     'flux',
     'polymail',
     'postgres',
+    'postman',
     'spotify',
     '1password',
     'helium',
     'cheatsheet',
-    //'adium',
-    //'amazon-cloud-drive',
-    //'atom',
-    // 'box-sync',
-    //'comicbooklover',
-    //'diffmerge',
     'docker', // docker for mac
-    //'dropbox',
-    //'evernote',
     'flux',
     'gpg-suite',
-    //'ireadfast',
     'iterm2',
     'little-snitch',
-    'macbreakz',
     'micro-snitch',
     'signal',
-    //'macvim',
     'sizeup',
-    //'sketchup',
+    'sketch',
     'slack',
     'the-unarchiver',
-    //'torbrowser',
-    //'transmission',
     'visual-studio-code',
-    //'vlc',
-    'xquartz'
+    'xquartz',
+    'spectacle'
   ],
   gem: [
+    'bundler',
+    'rspec'
   ],
   npm: [
     'antic',
     'buzzphrase',
     'eslint',
+    'tslint',
     'instant-markdown-d',
-    // 'generator-dockerize',
-    // 'gulp',
     'npm-check-updates',
     'prettyjson',
     'trash',
     'vtop'
-    // ,'yo'
   ]
 };
